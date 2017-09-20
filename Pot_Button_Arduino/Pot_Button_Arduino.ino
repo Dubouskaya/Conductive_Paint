@@ -1,4 +1,4 @@
-/*
+/*Potentiometer
   Analog input, analog output, serial output
 
  Reads an analog input pin, maps the result to a range from 0 to 255
@@ -34,14 +34,14 @@
 // These constants won't change.  They're used to give names
 // to the pins used:
 const int analogInPin = A0;  // Analog input pin that the potentiometer is attached to
-const int analogOutPin = 9; // Analog output pin that the LED is attached to
+const int analogOutPin = 13; // Analog output pin that the LED is attached to
 
 int sensorValue = 0;        // value read from the pot
 int outputValue = 0;        // value output to the PWM (analog out)
 
 //-----BUTTON-----
 const int buttonPin = 2;     // the number of the pushbutton pin
-const int ledPin =  7;      // the number of the LED pin
+const int ledPin =  12;      // the number of the LED pin
 
 // variables will change:
 int buttonState = 0;         // variable for reading the pushbutton status
