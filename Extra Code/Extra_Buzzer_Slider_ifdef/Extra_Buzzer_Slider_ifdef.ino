@@ -1,11 +1,20 @@
 #include "pitches.h"
+
+//#define BUZZER
+
 // the lowest and highest readings you get from light sensor:
 // sensor minimum, discovered through experiment
-const int sensorMin = 80;
+const int sensorMin = 0;
 // sensor maximum, discovered through experiment
-const int sensorMax = 980;
+const int sensorMax = 25;
+const int sensorPin = A0;
+
 // speaker pin
+#ifdef BUZZER
 const int spkPin = 3;
+#endif
+
+
 
 void setup() {
   // put your setup code here, to run once:
@@ -16,12 +25,15 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   // read the sensor:
-  int sensorReading = analogRead(A0);
+  int sensorReading = analogRead(sensorPin);
   //Serial.print("Sensor: ");
   Serial.println(sensorReading);
+  
+
+
+  #ifdef BUZZER
   // map the sensor range to a range of 8 options:
   int range = map(sensorReading, sensorMax, sensorMin, 0, 8);
-
   // do something different depending on the range value
   switch (range) {
     case 0:
@@ -53,5 +65,10 @@ void loop() {
       tone(spkPin, NOTE_C5, 10);
       break;
   }
+  #endif
+
+
+
+  
   delay(1);
 }
