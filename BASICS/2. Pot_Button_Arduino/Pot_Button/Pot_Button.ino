@@ -10,7 +10,7 @@ void setup() {
   Serial.begin(9600); // initialize serial communications at 9600 bps
 
   pinMode(ledPin, OUTPUT); // initialize the LED pin as an output
-  pinMode(buttonPin, INPUT); // initialize the pushbutton pin as an input
+  pinMode(buttonPin, INPUT_PULLUP); // initialize the pushbutton pin as an input
 }
 
 void loop() {
@@ -19,7 +19,7 @@ void loop() {
 
   // check if the pushbutton is pressed.
   // if it is, the buttonState is HIGH:
-  if (buttonState == HIGH) {
+  if (buttonState == LOW) {
     digitalWrite(ledPin, HIGH); // turn LED on
   } else {
     digitalWrite(ledPin, LOW); // turn LED off
@@ -58,5 +58,5 @@ int outputValue = 0;        // value output to the PWM (analog out)
   // after the last reading:
   delay(2);
 
-/*
+*/
 

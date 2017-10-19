@@ -3,8 +3,8 @@
 
 #include "pitches.h"
 
-const int sensorMinB = 240;   // sensor minimum, discovered through experiment
-const int sensorMaxB = 257;  // sensor maximum, discovered through experiment
+const int sensorMinB = 0;   // sensor minimum, discovered through experiment
+const int sensorMaxB = 1023;  // sensor maximum, discovered through experiment
 const int sensorPinB = A3;
 
 const int speakerPin = 3;

@@ -5,20 +5,20 @@
 //VARIABLES for BUZZER
 // the lowest and highest readings you get from light sensor:
 
-const int sensorMinB = 240;   // sensor minimum, discovered through experiment
-const int sensorMaxB = 257;  // sensor maximum, discovered through experiment
-const int sensorPinB = A1;
+const int sensorMinB = 40;   // CHANGE IT :sensor minimum, discovered through experiment
+const int sensorMaxB = 580;  // CHANGE IT :sensor maximum, discovered through experiment
+const int sensorPinB = A3; //A1
 
 const int speakerPin = 3;
 
-const int speedVar = 100;
+int speedVar = 100;
 
 //VARIABLES for SENSOR
-CapacitiveSensor   cs_6_5 = CapacitiveSensor(6,5);        // 10M resistor between pins 6 & 5, pin 5 is sensor pin, add a wire and or foil if desired
+CapacitiveSensor   cs_6_5 = CapacitiveSensor(1,0);        // 10M resistor between pins 6 & 5, pin 5 is sensor pin, add a wire and or foil if desired
 int sensorValue = 0;
 int outputValue = 0;
-int minSensor = 200;
-int maxSensor = 6000;
+int minCapSensor = 200;
+int maxCapSensor = 1600;
 
 void setup() {
   // put your setup code here, to run once:
@@ -33,11 +33,11 @@ void loop() {
   long start = millis();
   long total1 =  cs_6_5.capacitiveSensor(30);
   sensorValue = total1;
-  Serial.print("SENSOR: ");
+  Serial.print("CAP SENSOR: ");
   Serial.print(sensorValue);
-  outputValue = map(sensorValue, minSensor, maxSensor, 10, 1000);
-  //if(outputValue <=10  || outputValue >1000){speedVar = 0;}
-  //else {speedVar = outputValue;}
+  outputValue = map(sensorValue, minCapSensor, maxCapSensor, 10, 2000);
+  if(outputValue <=10){speedVar = 0;}
+  else {speedVar = outputValue;}
   // put your main code here, to run repeatedly:
   // read the sensor:
   Serial.print(";  SPEED: ");
@@ -51,6 +51,8 @@ void loop() {
   Serial.print(";  NOTE: ");
   Serial.println(range);
   // do something different depending on the range value
+  if(speedVar == 0){noTone(speakerPin);}
+  else{
   switch (range) {
     case -1:
       //tone(pin, frequency (hertz), duration(ms))
@@ -91,7 +93,8 @@ void loop() {
       break;
     
   }
-  delay(1);
+  delay(speedVar+500);
+  }
 }
 
 
