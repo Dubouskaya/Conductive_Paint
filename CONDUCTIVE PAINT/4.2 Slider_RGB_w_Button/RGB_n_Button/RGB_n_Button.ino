@@ -9,8 +9,8 @@
 
 //VARIABLES _ RGB
 // the lowest and highest readings you get from light sensor:
-const int sensorMinRGB = 30;   // CHANGE IT: sensor minimum, discovered through experiment
-const int sensorMaxRGB = 560;  // CHANGE IT: sensor maximum, discovered through experiment
+const int sensorMinRGB = 100;   // CHANGE IT: sensor minimum, discovered through experiment
+const int sensorMaxRGB = 620;  // CHANGE IT: sensor maximum, discovered through experiment
 const int sensorPin = A0;
 const int bufferValue = 200;
 

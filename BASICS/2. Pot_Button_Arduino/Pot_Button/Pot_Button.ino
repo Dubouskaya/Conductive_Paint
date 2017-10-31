@@ -2,6 +2,16 @@
 const int buttonPin = 2;     // the number of the pushbutton pin
 const int ledPin =  12;      // the number of the LED pin
 
+/*
+//-----POT--------
+// These constants won't change.  They're used to give names
+// to the pins used:
+const int analogInPin = A0;  // Analog input pin that the potentiometer is attached to
+const int analogOutPin = 13; // Analog output pin that the LED is attached to
+int sensorValue = 0;        // value read from the pot
+int outputValue = 0;        // value output to the PWM (analog out)
+*/
+
 // variables will change:
 int buttonState = 0;         // variable for reading the pushbutton status
 
@@ -18,30 +28,13 @@ void loop() {
   buttonState = digitalRead(buttonPin); // read the state of the pushbutton value
 
   // check if the pushbutton is pressed.
-  // if it is, the buttonState is HIGH:
+  // if it is, the buttonState is LOW:
   if (buttonState == LOW) {
     digitalWrite(ledPin, HIGH); // turn LED on
   } else {
     digitalWrite(ledPin, LOW); // turn LED off
   }
-}
-
-
-
 /*
-//---------------------------------------------------------------------
-//-----POTENTIOMETER-----
-
-//VARIABLES
-// These constants won't change.  They're used to give names
-// to the pins used:
-const int analogInPin = A0;  // Analog input pin that the potentiometer is attached to
-const int analogOutPin = 13; // Analog output pin that the LED is attached to
-int sensorValue = 0;        // value read from the pot
-int outputValue = 0;        // value output to the PWM (analog out)
-
-
-//INSIDE THE LOOP:
   //-----POTENTIOMETER-----
   sensorValue = analogRead(analogInPin); // read the analog in value
   outputValue = map(sensorValue, 0, 1023, 0, 255); // map it to the range of the analog out
@@ -57,6 +50,6 @@ int outputValue = 0;        // value output to the PWM (analog out)
   // for the analog-to-digital converter to settle
   // after the last reading:
   delay(2);
-
-*/
-
+  */
+  
+}
