@@ -5,8 +5,8 @@
 Simple examples of button and potentiometer using a microcontroller.
 
 >**Conductive Paint projects:**
->-Lamp Project using RGB LED control
->-Keyboard Project using Midi control
+>- Lamp Project using RGB LED control
+>- Keyboard Project using Midi control
 
 
 This workshop is taught by:
